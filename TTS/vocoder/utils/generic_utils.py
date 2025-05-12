@@ -45,7 +45,7 @@ def plot_results(y_hat: torch.tensor, y: torch.tensor, ap: AudioProcessor, name_
         name_prefix = ""
 
     # select an instance from batch
-    y_hat = y_hat[0].squeeze().detach().cpu().numpy()
+    y_hat = y_hat[0].squeeze().detach().to(torch.float32).cpu().numpy()
     y = y[0].squeeze().detach().cpu().numpy()
 
     spec_fake = ap.melspectrogram(y_hat).T
