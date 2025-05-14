@@ -130,7 +130,7 @@ class ForwardTTSArgs(Coqpit):
     hidden_channels: int = 384
     use_aligner: bool = True
     # pitch params
-    use_pitch: bool = True
+    use_pitch: bool = False
     pitch_predictor_hidden_channels: int = 256
     pitch_predictor_kernel_size: int = 3
     pitch_predictor_dropout_p: float = 0.1
