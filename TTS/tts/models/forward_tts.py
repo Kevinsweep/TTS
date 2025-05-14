@@ -644,7 +644,7 @@ class ForwardTTS(BaseTTS):
         o_energy = None
         avg_energy = None
         if self.args.use_energy:
-            o_energy_emb, o_energy, avg_energy = self._forward_energy_predictor(o_en, x_mask, energy, dr)
+            o_energy_emb, o_energy = self._forward_energy_predictor(o_en, x_mask, energy, dr)
             o_en = o_en + o_energy_emb
         # decoder pass
         o_de, attn = self._forward_decoder(
