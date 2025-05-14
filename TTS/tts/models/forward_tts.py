@@ -638,8 +638,7 @@ class ForwardTTS(BaseTTS):
         o_pitch = None
         avg_pitch = None
         if self.args.use_pitch:
-            o_pitch_emb, o_pitch = self._forward_pitch_predictor(o_en, x_mask, pitch, dr)
-            avg_pitch = None		
+            o_pitch_emb, o_pitch = self._forward_pitch_predictor(o_en, x_mask, pitch, dr)	
             o_en = o_en + o_pitch_emb
         # energy predictor pass
         o_energy = None
@@ -647,7 +646,6 @@ class ForwardTTS(BaseTTS):
         if self.args.use_energy:
             o_energy_emb, o_energy = self._forward_energy_predictor(o_en, x_mask, energy, dr)
             o_en = o_en + o_energy_emb
-	    avg_energy = None
         # decoder pass
         o_de, attn = self._forward_decoder(
             o_en, dr, x_mask, y_lengths, g=None
